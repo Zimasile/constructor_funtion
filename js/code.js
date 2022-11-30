@@ -34,7 +34,7 @@ function PersonDetails(firstName, lastName,
         Email: ${this.getEmail()}`;
     }
 } 
-let person1 = new PersonDetails("Peter", "Henk",
+let person = new PersonDetails("Peter", "Henk",
 "peter@gmail.com");
 console.log(person1.display());
 console.log("=============");
@@ -44,13 +44,49 @@ person1.setEmail("sarah@gmail.com");
 console.log(person1.display());
 
 // ====Solution 2====
-class PersonDetails
-// Private
-#firstName;
-#lastName;
-#email;
-constructor(firstName, lastName, email) {
-    this.#firstName = firstName;
-    this.#lastName = lastName;
-    this.#email = email;
+class PersonDetails{
+    // Private
+    #firstName;
+    #lastName;
+    #email;
+    constructor(firstName, lastName, email) {
+        this.#firstName = firstName;
+        this.#lastName = lastName;
+        this.#email = email;
+    }
+    // FirstName
+    get firstName() {
+        return this.#firstName;
+    }
+    set firstName(value) {
+        this.#firstName = value;
+    }
+    // LastName
+    get lastName() {
+        return this.#lastName;
+    }
+    set lastName(value) {
+        this.#lastName = value;
+    }
+    // Email
+    get email() {
+        return this.#email;
+    }
+    set email(value) {
+        this.#email = value;
+    }
+    // Display
+    display() {
+        console.log(`
+        Name: ${this.firstName}
+        Surname: ${this.lastName}
+        Email: ${this.email}`);
+    }
 }
+let person1 = new PersonDetails("Joel", "Mukanya", "joel@gmail.com");
+person1.display();
+console.log("===========");
+person1.firstName = "Peter";
+person1.lastName = "Henk";
+person1.email = "peter@gmail.com"
+person1.display();
